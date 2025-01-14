@@ -1,0 +1,153 @@
+# install
+## Documentation
+1. [Docs Home](../docs_home.md)
+2. [Getting Started Guides](../getting_started.md) 
+   1. [Quickstart Guide](../getting_started/quickstart.md)
+   2. [Installation Guide](../getting_started/installation.md)
+3. [Concepts Guides](../concepts.md)  
+   1. [Gears Guide](../concepts/gears.md)
+   2. [apiVersion list](../concepts/api_version_list.md)
+      1. [apiVersion v1](../concepts/api_version_list/v1.md) 
+4. [How-to Guides](../how_to.md)  
+   1. [Build Guide](../how_to/build.md)
+   2. [Gear Development Cases](../how_to/gear_development_cases.md)
+   3. [Integration with semantic-release](../how_to/integration_with_semantic_release.md)
+5. [CLI reference](../cli_reference.md) 
+   1. [download](download.md)
+   2. **[install](install.md)**
+   3. [list](list.md)
+   4. [uninstall](uninstall.md)
+   5. [version](version.md)
+6. [API reference](../api_reference.md)  
+   1. [Develop interface](../api_reference/develop_interface.md)  
+      1. [types Module](../api_reference/develop_interface/types.md)
+      2. [cicd_variables Module](../api_reference/develop_interface/cicd_variables.md)
+      3. [templates Module](../api_reference/develop_interface/templates.md)
+
+---
+
+## Table of Content
+[[_TOC_]]
+
+Install gears to branches in GitLab repository
+
+git-system-follower install a gears into the repository branch using the package api: `init` / `update` / `delete`.
+After it git-system-follower create/update `.states.yaml` file in root of directory where save information about installed gears
+
+You can pass a gear to installation as:
+1. docker image: it will be downloaded (see [CLI reference/download](download.md))
+2. `.tar.gz` file
+3. directory with gear (source code)
+
+## Display help text
+To list the help on any command just execute the command, followed by the `--help` option
+```plaintext
+$ gsf packages install --help
+
+Usage: gsf packages install [OPTIONS] [GEARS]...
+
+  Install gears to branches in repository
+
+  GEARS                         Install all listed gears as
+                                1. image: <registry>/<repository>/<name>:<tag>, e.g.
+                                artifactory.company.com/path-to/your-image:1.0.0
+                                2. .tar.gz archive: /path/to/archive.tar.gz, e.g.
+                                your-archive@1.0.0.tar.gz
+                                3. source code files: /path/to/gear directory, e.g.
+                                your-gear@1.0.0
+
+Options:
+  -r, --repo URL                  Gitlab repository url  [required]
+  -b, --branch BRANCH...          Branches in which to install the gears
+                                  [required]
+  -t, --token TEXT                Gitlab access token  [required]
+  --extra <NAME VALUE CHOICE>...  Extra parameters to be passed to the package
+                                  API: variable name, value, masked/no-masked
+  --ticket TEXT                   Ticket ID that will be automatically added
+                                  to the beginning of each commit message
+                                  [default: FAKE-0000]
+  --message TEXT                  Commit message text after the ticket ID
+                                  [default: Installed gear(s)]
+  -f, --force                     Forced installation: change of files, CI/CD
+                                  variables as specified in gear
+  --debug                         Show debug level messages
+  --help                          Show this message and exit.
+```
+
+## Arguments
+| Name    | Description                                                                                                                                                                            | Example                                                                                                                      |
+|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
+| `GEARS` | Install all listed gears as:<br/>1. image: `<registry>/<repository>/<name>:<tag>`<br/>2. .tar.gz archive: `/path/to/archive.tar.gz`<br/>3.source code files: `/path/to/gear directory` | `artifactory.company.com/my-image:1.0.0`, `/path/to/my-archive@1.0.0.tar.gz`, `/path/to/my-gear@1.0.0`, `project/my-package` |
+
+## Options
+| Name             | Description                                                                                         | Mandatory |    Default value    | Environment variable | Example                                                          |
+|------------------|-----------------------------------------------------------------------------------------------------|:---------:|:-------------------:|:--------------------:|------------------------------------------------------------------|
+| `-r`, `--repo`   | Gitlab repository url                                                                               |     +     |          -          |          -           | `https://git.company.com/test`, `http://localhost/test.git`      |
+| `-b`, `--branch` | Branches in which to install the gears                                                              |     +     |          -          |          -           | `main`, `features/FAKE-0000`                                     |
+| `-t`, `--token`  | Gitlab access token                                                                                 |     +     |          -          |   `GSF_GIT_TOKEN`    | `glpat-xxxxxXYvoxqPZw_5Kmyr`                                     |
+| `--extra`        | Extra parameters to be passed to the package API: `name`, `value`, `masked`/`no-masked` of variable |     -     |          -          |          -           | `add_functionality true no-masked`, `password MyPa$$word masked` |
+| `--ticket`       | Ticket ID that will be automatically added to the beginning of each commit message                  |     -     |     `FAKE-0000`     |          -           | `FAKE-0001`, `ABCD-1234`                                         |
+| `--message`      | Commit message text after the ticket ID'                                                            |     -     | `Installed gear(s)` |          -           | `Another commit message`                                         |
+| `--force`        | Forced installation: change of files, CI/CD variables as specified in gear                          |     -     |       `False`       |          -           |                                                                  |
+| `--debug`        | Show debug level messages                                                                           |     -     |       `False`       |          -           |                                                                  |
+
+## Examples
+Installing the gear (docker image) to main branch
+```plaintext
+$ gsf packages install -r https://git.company.com/test.git \
+                       -b main -t glpat-xxxxxXYvoxqPZw_5Kmyr \
+                       artifactory.company.com/my-image:1.0.0
+```
+
+Installing the gear (`.tar.gz` archive) to main branch
+```plaintext
+$ gsf packages install -r https://git.company.com/test.git \
+                       -b main -t glpat-xxxxxXYvoxqPZw_5Kmyr \
+                       packages/my-archive@1.0.0.tar.gz
+```
+
+Installing the gear (directory with source code) to main branch
+```plaintext
+$ gsf packages install -r https://git.company.com/test.git \
+                       -b main -t glpat-xxxxxXYvoxqPZw_5Kmyr \
+                       packages/my-project
+```
+
+Specify multiple gears for installation:
+```plantext
+$ gsf packages install -r https://git.company.com/test.git \
+                       -b main -t glpat-xxxxxXYvoxqPZw_5Kmyr \
+                       artifactory.company.com/my-image:1.0.0 \
+                       packages/some-other-package.tar.gz \
+                       projects/my-project
+```
+
+Specify multiple branches for installing:
+```plantext
+$ gsf packages install -r https://git.company.com/test.git \
+                       -b main -b develop -b feature\DTWO-0000 \
+                       -t glpat-xxxxxXYvoxqPZw_5Kmyr \
+                       packages/my-gear@1.0.0
+```
+
+Passing extra parameters to api package during installation:
+```plantext
+$ gsf packages install -r https://git.company.com/test.git \
+                       -b main -t glpat-xxxxxXYvoxqPZw_5Kmyr \
+                       --extra FIRST_VAR_NAME FIRST_VAR_VALUE no-masked \
+                       --extra PASSWORD Pa$$w0rd masked \
+                       packages/my-gear@1.0.0
+```
+
+## Advanced
+### Carefully update/delete created resources
+git-system-follower provides an interface for creating file structure and creating CI/CD variables,
+so that when installing, git-system-follower tries to carefully update/delete created resources.
+For example, if a CI/CD variable has already been created and does not match what the gear
+being installed provides, git-system-follower will skip processing that variable. But if the `--force` parameter is specified or 
+`is_force=True` is specified in creating variable in package api,
+git-system-follower will update/delete the variable regardless of its contents. 
+Works the same way with files in the repository
+
+### Installation order
+Install dependencies first, then root gear
