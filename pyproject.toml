@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "qubership-git-system-follower"
+version = "0.0.1"
+description = "The package manager for Git providers"
+authors = ["Qubership"]
+license = "Apache-2.0"
+readme = "README.md"
+packages = [{include = "git_system_follower"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+click = "8.1.7"
+colorama = "0.4.6"
+cookiecutter = "2.6.0"
+gitpython = "3.1.43"
+python-gitlab = "4.9.0"
+pyyaml = "6.0.2"
+requests = "2.32.3"
+packaging = "24.1"
+oras = "0.2.24"
+
+[tool.poetry.scripts]
+git-system-follower = "git_system_follower.cli:cli"
+gsf = "git_system_follower.cli:cli"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^6.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
