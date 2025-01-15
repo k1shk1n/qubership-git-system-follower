@@ -26,9 +26,6 @@
 
 ---
 
-## Table of Content
-[[_TOC_]]
-
 This CLI provides several commands for managing gears within your GitLab repository.
 Below are pages with the available commands and their functionalities:
 1. [download](cli_reference/download.md) - Download gears
@@ -36,9 +33,6 @@ Below are pages with the available commands and their functionalities:
 3. [list](cli_reference/list.md) - List installed gears: **in develop** :exclamation:
 4. [uninstall](cli_reference/uninstall.md) - Uninstall gears from repositories in GitLab group
 5. [version](cli_reference/version.md) - Show version
-
-## Table of content
-[[_TOC_]]
 
 ## Entry points
 You can use long and short entry point to use `git-system-follower`, their functionality is the same:

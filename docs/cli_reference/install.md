@@ -26,9 +26,6 @@
 
 ---
 
-## Table of Content
-[[_TOC_]]
-
 Install gears to branches in GitLab repository
 
 git-system-follower install a gears into the repository branch using the package api: `init` / `update` / `delete`.

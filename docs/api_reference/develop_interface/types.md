@@ -26,9 +26,6 @@
 
 ---
 
-## Table of Content
-[[_TOC_]]
-
 API provided in `types.py` module. This module contains classes for easy interaction. You can also use them as type hints in your code.
 
 ## Usage in package api

@@ -26,9 +26,6 @@
 
 ---
 
-## Table of Content
-[[_TOC_]]
-
 Here you'll find guides to getting started using git-system-follower
 
 

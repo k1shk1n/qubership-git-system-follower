@@ -26,9 +26,6 @@
 
 ---
 
-## Table of Content
-[[_TOC_]]
-
 API provided in `cicd_variables.py` module. This module contains functions for easy interaction with CI/CD variables.
 
 :exclamation: When you want to mask a variable, follow [Gitlab Mask a CI/CD variable rules](https://docs.gitlab.com/ee/ci/variables/#mask-a-cicd-variable)

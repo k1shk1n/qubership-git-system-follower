@@ -26,8 +26,6 @@
 
 ---
 
-## Table of Content
-[[_TOC_]]
 
 API provided in `templates.py` module. This module contains functions for easy interaction with `cookiecutter` templates.
 

@@ -26,9 +26,6 @@
 
 ---
 
-## Table of Content
-[[_TOC_]]
-
 git-system-follower provides an interface for developers for creating/deleting CI/CD variables
 and generate/update/delete a `cookiecutter` template in a repository branch
 

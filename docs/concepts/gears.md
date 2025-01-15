@@ -26,9 +26,6 @@
 
 ---
 
-## Table of Content
-[[_TOC_]]
-
 git-system-follower uses a packaging format called Gear. Gear is a collection of files describe the variables and structure of files in a repository.
 
 Gears are created as files laid out in a particular directory tree. They can be packaged into archives, docker images (is scheduled to be converted to an OCI image).

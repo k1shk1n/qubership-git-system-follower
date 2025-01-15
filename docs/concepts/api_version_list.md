@@ -26,9 +26,6 @@
 
 ---
 
-## Table of Content
-[[_TOC_]]
-
 This page provides information about available `apiVersion` and links to descriptions of those versions
 
 **Latest**: [`apiVersion` v1](api_version_list/v1.md)

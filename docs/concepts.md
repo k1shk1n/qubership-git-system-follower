@@ -26,9 +26,6 @@
 
 ---
 
-## Table of Content
-[[_TOC_]]
-
 Here you find intoductions to all key parts of git-system-follower that you wull need for your work
 
 ## Quicklinks

@@ -26,9 +26,6 @@
 
 ---
 
-## Table of Content
-[[_TOC_]]
-
 Uninstall gears from branches in GitLab repository
 
 git-system-follower uninstall a gears into the repository branch using the package api: `delete`.

@@ -26,7 +26,4 @@
 
 ---
 
-## Table of Content
-[[_TOC_]]
-
 in develop: TBD

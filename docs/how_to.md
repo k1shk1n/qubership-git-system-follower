@@ -26,9 +26,6 @@
 
 ---
 
-## Table of Content
-[[_TOC_]]
-
 Here you will find short answers to "How do I ...?" types questions.
 
 ## Quicklinks

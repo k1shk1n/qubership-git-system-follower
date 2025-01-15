@@ -26,9 +26,6 @@
 
 ---
 
-## Table of Content
-[[_TOC_]]
-
 ## How the documentation is organized
 git-system-follower comes with extensive documentation. To help you find the right resources, here's a high-level overview of how it's structured:
 

@@ -26,9 +26,6 @@
 
 ---
 
-## Table of Content
-[[_TOC_]]
-
 Show `git-system-follower package manager` version
 
 ## Display help text

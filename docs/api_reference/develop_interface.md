@@ -26,9 +26,6 @@
 
 ---
 
-## Table of Content
-[[_TOC_]]
-
 Here you find information about what is contained in `git_system_follower.package_manager.develop.api`
 
 ## Quicklinks

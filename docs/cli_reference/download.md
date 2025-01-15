@@ -26,9 +26,6 @@
 
 ---
 
-## Table of Content
-[[_TOC_]]
-
 Download gears
 
 Downloading all listed gears (docker images) and then finding the package layer in that image

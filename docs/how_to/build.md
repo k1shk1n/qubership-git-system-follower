@@ -26,13 +26,7 @@
 
 ---
 
-## Table of Content
-[[_TOC_]]
-
 Information on how to build your project as git-system-follower gear (docker image)
-
-## Table of content
-[[_TOC_]]
 
 ## Package file structure
 ```plaintext
