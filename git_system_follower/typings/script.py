@@ -12,3 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from typing import TypedDict
+
+from git_system_follower.package.cicd_variables import CICDVariable
+
+
+__all__ = ['ScriptResponse']
+
+
+class ScriptResponse(TypedDict):
+    template: str
+    template_variables: dict[str, str]
+    cicd_variables: list[CICDVariable]
