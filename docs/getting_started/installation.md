@@ -33,9 +33,9 @@ git-system-follower is python package, you can install it with any python packag
 **Note**. git-system-follower only supports Linux, it can run on Windows or macOS, but officially Windows and macOS are not supported
 
 ## From pre-build python package
-:exclamation: **THE PACKAGE HASN'T BEEN RELEASED YET**. Install git-system-follower release version:
+Install git-system-follower release version:
 ```bash
-pip install <TBD AFTER OPEN SOURCE>
+pip install qubership-git-system-follower
 ```
 
 ## From Source
