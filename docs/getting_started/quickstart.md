@@ -66,25 +66,23 @@ Once git-system-follower is ready, you can prepare the repository.
         * `write_repository`: Access to modify repository data
     2. Ensure the token is associated with a user who has the necessary permissions or use the repository `Access Token`
 
-## Install an example Gear
-To install a gear, you can run the `gsf packages install` command.
-
-Before this command, exporting the variable with the token to the repository:
+Exporting the variable with the token to the repository before installing/uninstalling Gears:
 ```bash
 export GSF_GIT_TOKEN=<your token>
 ```
 
-After that run the `install` command
+## Install an example Gear
+To install a gear, you can run the `install` command
 ```bash
-gsf packages install --repo <your repo> \
-                     --branch <your branch> \
-                     <TBD: example package>
+gsf install --repo <your repo> \
+            --branch <your branch> \
+            <TBD: example package>
 ```
 
 ## Uninstall an example Gear
-To uninstall a gear, you can run the `gsf packages uninstall` command.
+To uninstall a gear, you can run the `uninstall` command
 ```bash
-gsf packages uninstall --repo <your repo> \
-                       --branch <your branch> \
-                       <TBD: example package>
+gsf uninstall --repo <your repo> \
+              --branch <your branch> \
+              <TBD: example package>
 ```
