@@ -28,6 +28,7 @@ Git providers
 Gear registries
 ![Dockerhub](https://img.shields.io/badge/Dockerhub-%230db7ed.svg?style=flat&logo=docker&logoColor=white)
 ![Artifactory](https://img.shields.io/badge/Artifactory-%41bf47.svg?style=flat)
+![Nexus](https://img.shields.io/badge/Nexus-%333333.svg?style=flat)
 
 </div>
 
