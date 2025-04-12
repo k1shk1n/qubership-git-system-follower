@@ -46,9 +46,11 @@ git-system-follower is a python package, you can install it with any python pack
 For more details, see [the Installation Guide](installation.md)
 
 ## Complete repository prerequisites
-Once git-system-follower is ready, you can prepare the repository. 
+Once git-system-follower is ready, you can prepare the repository.
 
-**Note**. Right now git-system-follower only works with Gitlab
+> \[!NOTE]
+>
+> Right now git-system-follower only works with Gitlab
 
 ### Gitlab repository
 1. **Create or select Gitlab repository**: create new empty repositories within the group or utilize existing repositories that you wish to manage

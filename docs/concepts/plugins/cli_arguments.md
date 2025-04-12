@@ -34,9 +34,12 @@ you want to pass a `.txt` file that lists the OCI artifact.
 
 That is, you can write functionality to handle arguments that, for example, have a complex structure. 
 
-Note that the result of the plugin must be one of the following:
-source directory (`PackageCLISource`), tar.gz archive (`PackageCLITarGz`), docker image/OCI artifact (`PackageCLIImage`).
-See the example below
+> \[!NOTE]
+>
+> Result of the plugin must be one of the following: a directory with the source code
+> (`PackageCLISource`), a tar.gz archive (`PackageCLITarGz`), a docker image/OCI artifact (`PackageCLIImage`)
+> 
+> See the example below
 
 Plugin System entry points group: `gsf.plugins.cli.packages`
 

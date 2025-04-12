@@ -33,7 +33,9 @@ This guide shows how to install the git-system-follower CLI. git-system-follower
 
 git-system-follower is python package, you can install it with any python package manager.
 
-**Note**. git-system-follower only supports Linux, it can run on Windows or macOS, but officially Windows and macOS are not supported
+> \[!NOTE]
+>
+> git-system-follower only supports Linux, it can run on Windows or macOS, but officially Windows and macOS are not supported
 
 ## From PyPI
 If you prefer to use git-system-follower as a standalone CLI tool instead of integrating its functionality into your Python packages, `uv tool` is the recommended installation method.
