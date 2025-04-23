@@ -14,7 +14,7 @@
 
 """ Module with cli types """
 from dataclasses import dataclass
-from typing import NamedTuple
+from typing import NamedTuple, Optional, Union
 from pathlib import Path
 from enum import Enum
 
@@ -91,3 +91,5 @@ class ExtraParam(NamedTuple):
 class Credentials(NamedTuple):
     username: str
     password: str
+    # for adding token necessary to think use this class or create several class,
+    # e.g. Token = str, Auth = Optional[Union[Credentials, Token]]
