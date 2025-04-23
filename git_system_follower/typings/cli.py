@@ -14,7 +14,7 @@
 
 """ Module with cli types """
 from dataclasses import dataclass
-from typing import NamedTuple, Optional, Union
+from typing import NamedTuple
 from pathlib import Path
 from enum import Enum
 
