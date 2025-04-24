@@ -118,23 +118,25 @@ to map the image to the package directory it downloaded (see [Image-to-package m
 You can work with private registries by providing authentication credentials.
 
 There are three ways to specify credentials, listed in order of priority: 
-1. Pass the credentials directly using `--registry-username` and `--registry-password`
-2. Set `GSF_REGISTRY_USERNAME` and `GSF_REGISTRY_PASSWORD` as environment variables
-3. Credentials can be provided via stdin using `echo`: `echo -e "<username>\n<password>" | gsf download ...`
-> \[!WARNING]
->
-> Note that unlike other methods, you can't transfer only username or only password this way. This way you can transfer both username and password at once
 
-> \[!WARNING]
->
-> This priority is wrong. In the next version the 2nd and 3rd item will be reversed
+1. Pass the credentials directly using `--registry-username` and `--registry-password`
+2. Credentials can be provided via stdin: `echo "<username>:<password>" | gsf download ...`
+3. Set `GSF_REGISTRY_USERNAME` and `GSF_REGISTRY_PASSWORD` as environment variables
+4. If only username or only password has been provided then git-system-follower will request
+the rest of credentials using prompt (in interactive mode)
 
 If multiple methods are used, command-line parameters take precedence over stdin, and stdin takes precedence over environment variables.
 
 > \[!NOTE]
 >
-> If you pass only one thing: username or password; then gsf will ask for the rest as a prompt.
-> This is useful if you want to pass username in the clear and not show the password at all
+> How it works internally: if you pass a string that contains `:`, 
+> then git-system-follower parse that string as username everything before that character, 
+> everything after it as password.
+> 
+> If this string doesn't contain `:` git-system-follower will try to unmask this string
+> using `base64` and will parse unmasked string again.
+> 
+> If `:` is not in the string again, git-system-follower recognizes the entire string as a passed password
 
 ### Why docker is not a required
 When the git-system-follower downloads the docker image it doesn't need `docker` because we use the `oras` library
