@@ -139,6 +139,23 @@ If multiple methods are used, command-line parameters take precedence over stdin
 > If you pass only one thing: username or password; then gsf will ask for the rest as a prompt.
 > This is useful if you want to pass username in the clear and not show the password at all
 
+#### Specific registry authentication
+Some registries, such as **AWS ECR**, introduce their own custom "enhancements" on top of the classic
+Docker authentication mechanisms like **Basic** and **Bearer**. In this case, git-system-follower follows
+the standard [Docker Registry HTTP API v2](https://docker-docs.uclv.cu/registry/spec/api/) specification,
+and any additional authentication logic is left to the user or the orchestration system in place.
+
+For AWS ECR specifically, you can authenticate using the AWS CLI (after configuring your local AWS account) like so:
+```bash
+$ aws ecr get-authorization-token --output text --query 'authorizationData[].authorizationToken' | gsf uninstall ...
+```
+
+> \[!NOTE]
+>
+> AWS ECR does not use Bearer authentication. Instead, it relies on **Basic** authentication, 
+> where the **username** is literally `AWS`, and the **password** is a temporary token (which lasts for 12 hours) obtained 
+> via `aws ecr get-authorization-token`.
+
 ### Carefully delete created resources
 git-system-follower provides an interface for creating file structure and creating CI/CD variables,
 so that when uninstalling, git-system-follower tries to carefully delete created resources.
