@@ -22,7 +22,10 @@ import json
 import shutil
 import re
 
-import oras.client, oras.container, oras.auth, oras.defaults
+import oras.client
+import oras.container
+import oras.auth
+import oras.defaults
 import requests
 from requests.auth import HTTPBasicAuth
 import yaml
@@ -69,8 +72,8 @@ class Registry(ABC, oras.client.OrasClient):
 
     @abstractmethod
     def _basic_auth(self, container: oras.container.Container, *, registry: RegistryInfo) -> str:
-        """ Get basic auth token for getting manifest and downloading layers using Base Auth(`docker pull` simulation with possibility
-        of anonymous image downloading)
+        """ Get basic auth token for getting manifest and downloading layers using Basic
+        Auth (`docker pull` simulation with possibility of anonymous image downloading)
 
         :param container: Oras container with information about target
         :param registry: registry information like credentials for auth, insecure mode, etc.
