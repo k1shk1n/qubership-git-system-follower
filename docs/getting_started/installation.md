@@ -33,7 +33,7 @@ For more details, see the [uv tool documentation](https://docs.astral.sh/uv/conc
 
 However, if `uv` is not a suitable option, use `pip` instead.
 
-??? note "Stadndart: By pip"
+??? note "Standard: By pip"
     ```bash
     # create & activate virtual env
     python -m venv .venv && source .venv/bin/activate 
